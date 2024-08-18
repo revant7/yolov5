@@ -507,7 +507,7 @@ def train(hyp, opt, device, callbacks):
                     )
 
             # Forward
-            with torch.amp.autocast("cuda", amp):
+            with torch.cuda.amp.autocast(amp):
                 pred = model(imgs)  # forward
                 loss, loss_items = compute_loss(
                     pred, targets.to(device)
